@@ -40,12 +40,14 @@ public class PrestamoRepositoryImpl implements PrestamoRepository {
     public LocalDate obtenerFechaPrestamoPorUsuario(String identificacionUsuario) {
         Query query = em.createQuery(ConstantesSql.CONSULTAR_MAX_FECHA_DEVOLUCION_POR_USUARIO);
         query.setParameter("identificacionUsuario",identificacionUsuario);
+        System.out.println("Alejo");
         Date maximaFecha = (Date) query.getSingleResult();
         if(maximaFecha != null) {
             return maximaFecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         } else {
             return ControladorFechas.restarDiasAFecha(LocalDate.now(),1);
         }
+
     }
 
     @Override
