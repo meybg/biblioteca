@@ -32,7 +32,7 @@ public class PrestamoRepositoryImpl implements PrestamoRepository {
         PrestamoResponse prestamoResponse = new PrestamoResponse();
         prestamoResponse.setId(prestamo.getId());
         prestamoResponse.setFechaMaximaDevolucion(solicitudPrestamo.getFechaMaximaDevolucion().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-
+    System.out.println("hola");
         return prestamoResponse;
     }
 
